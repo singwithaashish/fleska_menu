@@ -45,13 +45,13 @@ const Home = () => {
         setData(dat);
         // set the ref of each section
         setRefOfEachSection(
-          dat.categories.map((category) => React.createRef())
+          dat.categories.map((d) => React.createRef())
         );
         refOfEachSection.map((ref) => {
           const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
+              console.log(entry.target);
               if (entry.isIntersecting) {
-                // console.log(entry.target);
                 setCurrentIndex(parseInt(entry.target.id.split("-")[1]));
                 console.log(currentIndex);
               }
